@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },  { path: 'trail-search', loadChildren: './trail-search/trail-search.module#TrailSearchPageModule' }
+
 ];
 
 @NgModule({
