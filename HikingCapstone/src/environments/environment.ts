@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyAougDCdRbPHSx0jp579GleCcaM9vjCel0',
+    authDomain: 'hiking-capstone.firebaseapp.com',
+    databaseURL: 'https://hiking-capstone.firebaseio.com',
+    projectId: 'hiking-capstone',
+    storageBucket: 'hiking-capstone.appspot.com',
+    messagingSenderId: '522917654279'
+  }
 };
 
 /*
