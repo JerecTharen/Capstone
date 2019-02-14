@@ -3,6 +3,7 @@ import {MapQuestAPIService} from "../Services/map-quest-api.service";
 import {HikingAPIService} from "../Services/hiking-api.service";
 import {MapQuestData} from "../Shared/MapQuestData/map-quest-data";
 import {TrailData} from "../Shared/TrailData/trail-data";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-trail-search',
@@ -11,7 +12,9 @@ import {TrailData} from "../Shared/TrailData/trail-data";
 })
 export class TrailSearchPage implements OnInit {
 
-  private trails: any;
+  private trails: Observable<TrailData>;
+  private search: number;
+  private invalidZip: boolean = false;
 
   constructor(
       private mapService: MapQuestAPIService,
@@ -19,9 +22,18 @@ export class TrailSearchPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.mapService.getCoords(84003).subscribe((mapData: MapQuestData) =>{
-      this.trails = this.hikingService.getTrailsFor(mapData.results[0].locations[0].latLng);
-    });
+  }
+
+  searchForTrail():void{
+    if(this.search > 9999 && this.search < 100000){
+      this.invalidZip = false;
+      this.mapService.getCoords(this.search).subscribe((mapData: MapQuestData) =>{
+        this.trails = this.hikingService.getTrailsFor(mapData.results[0].locations[0].latLng);
+      });
+    }
+    else{
+      this.invalidZip = true;
+    }
   }
 
 }
