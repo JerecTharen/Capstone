@@ -4,6 +4,7 @@ import {HikingAPIService} from "../Services/hiking-api.service";
 import {MapQuestData} from "../Shared/MapQuestData/map-quest-data";
 import {TrailData} from "../Shared/TrailData/trail-data";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-trail-search',
@@ -18,7 +19,8 @@ export class TrailSearchPage implements OnInit {
 
   constructor(
       private mapService: MapQuestAPIService,
-      private hikingService: HikingAPIService
+      private hikingService: HikingAPIService,
+      private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,10 @@ export class TrailSearchPage implements OnInit {
     else{
       this.invalidZip = true;
     }
+  }
+
+  goToTrail(trailID: number): void{
+    this.router.navigate([`trail-details/${trailID}`]);
   }
 
 }

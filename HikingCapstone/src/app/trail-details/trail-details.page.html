@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>trail-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="trailData | async as trails" padding>
+  <div class="trailData" *ngFor="let trail of trails.trails">
+    <h1>{{trail.name}}</h1>
+    <img src="{{trail.imgMedium}}">
+    <p>{{trail.summary}}</p>
+    <div>
+      {{trail.stars}} Stars
+    </div>
+  </div>
+</ion-content>
