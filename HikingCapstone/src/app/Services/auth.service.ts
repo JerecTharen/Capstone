@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase/app';
 
+import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +23,12 @@ export class AuthService {
       .then(() => {
         console.log('Signed out');
       });
+  }
+
+  authed() {
+    return this.afAuth.authState.pipe(
+      map(res => res ? true : false)
+    );
   }
 
 }
