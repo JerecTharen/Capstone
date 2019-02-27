@@ -20,6 +20,7 @@ export class TrailDetailsPage implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    Math.round(4.7);
   }
 
 }

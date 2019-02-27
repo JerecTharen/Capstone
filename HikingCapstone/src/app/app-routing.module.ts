@@ -18,11 +18,11 @@ const routes: Routes = [
   },
   { path: 'trail-search',
     loadChildren: './trail-search/trail-search.module#TrailSearchPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   { path: 'trail-details/:id',
     loadChildren: './trail-details/trail-details.module#TrailDetailsPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   }
 
 ];
