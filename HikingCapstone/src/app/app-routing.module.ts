@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'trail-details/:id',
     loadChildren: './trail-details/trail-details.module#TrailDetailsPageModule',
     // canActivate: [AuthGuard]
-  }
+  },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' }
 
 ];
 
