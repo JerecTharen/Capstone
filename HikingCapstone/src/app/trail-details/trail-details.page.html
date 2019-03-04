@@ -8,6 +8,9 @@
   <div class="trailData" *ngFor="let trail of trails.trails">
     <h1>{{trail.name}}</h1>
     <img src="{{trail.imgMedium}}">
+    <img src="{{trail.difficulty | difficulty}}">
+    <p>Length: {{ trail.length }} Miles</p>
+    <p>Ascentt: {{trail.ascent}} Ft.</p>
     <p>{{trail.summary}}</p>
     <div>
       <h3 class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>

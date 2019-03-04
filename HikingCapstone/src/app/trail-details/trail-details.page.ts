@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HikingAPIService} from "../Services/hiking-api.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {Observable} from 'rxjs';
 import {TrailData} from "../Shared/TrailData/trail-data";
 
