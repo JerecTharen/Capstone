@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>trail-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Trail Details
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +15,7 @@
     <img src="{{trail.imgMedium}}">
     <img src="{{trail.difficulty | difficulty}}">
     <p>Length: {{ trail.length }} Miles</p>
-    <p>Ascentt: {{trail.ascent}} Ft.</p>
+    <p>Ascent: {{trail.ascent}} Ft.</p>
     <p>{{trail.summary}}</p>
     <div>
       <h3 class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
