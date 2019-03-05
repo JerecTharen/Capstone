@@ -19,6 +19,10 @@
       <div class="trailInfo">
         <h3>{{ aTrail.name }}</h3>
         <p>{{aTrail.summary}}</p>
+        <div>
+          <p class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+          {{trail.stars}} Stars
+        </div>
       </div>
     </ion-item>
   </ion-list>
