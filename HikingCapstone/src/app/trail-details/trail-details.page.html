@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>trail-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Trail Details
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,6 +13,11 @@
   <div class="trailData" *ngFor="let trail of trails.trails">
     <h1>{{trail.name}}</h1>
     <img src="{{trail.imgMedium}}">
+    <div class="trailInformation">
+      <img src="{{trail.difficulty | difficulty}}">
+      <p>Length: {{ trail.length }} Miles</p>
+      <p>Ascent: {{trail.ascent}} Ft.</p>
+    </div>
     <p>{{trail.summary}}</p>
     <div>
       <h3 class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>

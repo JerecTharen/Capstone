@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>TrailSearch</ion-title>
   </ion-toolbar>
   <ion-toolbar color="secondary">
@@ -16,6 +19,10 @@
       <div class="trailInfo">
         <h3>{{ aTrail.name }}</h3>
         <p>{{aTrail.summary}}</p>
+        <div>
+          <p class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+          {{trail.stars}} Stars
+        </div>
       </div>
     </ion-item>
   </ion-list>
