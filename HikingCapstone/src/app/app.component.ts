@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Router } from '@angular/router';
+
+import { AuthService } from './Services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private router: Router
+    private auth: AuthService
   ) {
     this.initializeApp();
   }
@@ -44,8 +45,8 @@ export class AppComponent {
     });
   }
 
-  auth() {
-    return this.router.url === '/auth';
+  signOut() {
+    this.auth.signOut()
   }
 
 }
