@@ -23,9 +23,14 @@ export class AppComponent {
       icon: 'list'
     },
     {
-      title: 'Tail-Search',
+      title: 'Trail search',
       url: '/trail-search',
       icon: 'home'
+    },
+    {
+      title: 'My trails',
+      url: '/my-trails',
+      icon: 'bookmark'
     }
   ];
 

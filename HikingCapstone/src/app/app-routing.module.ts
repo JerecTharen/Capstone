@@ -24,7 +24,8 @@ const routes: Routes = [
     loadChildren: './trail-details/trail-details.module#TrailDetailsPageModule',
     // canActivate: [AuthGuard]
   },
-  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' }
+  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
+  { path: 'my-trails', loadChildren: './my-trails/my-trails.module#MyTrailsPageModule' }
 
 ];
 
