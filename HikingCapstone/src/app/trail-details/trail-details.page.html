@@ -14,14 +14,21 @@
     <h1>{{trail.name}}</h1>
     <img src="{{trail.imgMedium}}">
     <div class="trailInformation">
-      <img src="{{trail.difficulty | difficulty}}">
+      <img src="{{trail.difficulty | difficulty}}" (click)="getWeatherData(trail.latitude, trail.longitude)">
       <p>Length: {{ trail.length }} Miles</p>
       <p>Ascent: {{trail.ascent}} Ft.</p>
+    </div>
+    <div class="trailLocation" (click)="getWeatherData(trail.latitude, trail.longitude)">
+      <p>Latitude: {{ trail.latitude }}</p>
+      <p (load)="getWeatherData(trail.latitude, trail.longitude)">Longitude: {{ trail.longitude }}</p>
     </div>
     <p>{{trail.summary}}</p>
     <div>
       <h3 class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
       {{trail.stars}} Stars
+    </div>
+    <div class="weather" *ngIf="weatherData | async as weather">
+      <p>{{weather.weather[0].description}}</p>
     </div>
   </div>
 </ion-content>

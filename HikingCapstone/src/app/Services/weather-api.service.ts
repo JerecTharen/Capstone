@@ -15,7 +15,7 @@ export class WeatherAPIService {
   ) { }
 
   getWeatherForLatLong(lat: number, long: number): Observable<WeatherGet>{
-    return this.http.get<WeatherGet>(`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}`);
+    return this.http.get<WeatherGet>(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${this.DELETEMeTemp}`);
   }
 
   getWeatherForZIP(zipcode: number): Observable<WeatherGet>{
