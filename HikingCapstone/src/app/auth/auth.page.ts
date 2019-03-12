@@ -12,12 +12,12 @@ export class AuthPage implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router
-) { }
+  ) { }
 
   ngOnInit() {
     this.auth.authed().subscribe(
       res => {
-        if (res) this.router.navigate(['/home']);
+        if (res) this.router.navigate(['/']);
       }
     );
   }
