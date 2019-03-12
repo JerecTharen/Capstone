@@ -16,17 +16,25 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'trail-search',
+  {
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthPageModule'
+  },
+  {
+    path: 'trail-search',
     loadChildren: './trail-search/trail-search.module#TrailSearchPageModule',
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
-  { path: 'trail-details/:id',
+  {
+    path: 'trail-details/:id',
     loadChildren: './trail-details/trail-details.module#TrailDetailsPageModule',
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
-  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
-  { path: 'my-trails', loadChildren: './my-trails/my-trails.module#MyTrailsPageModule' }
-
+  {
+    path: 'my-trails',
+    loadChildren: './my-trails/my-trails.module#MyTrailsPageModule',
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({
