@@ -5,7 +5,7 @@ import {AuthGuard} from "./Services/auth.guard";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'trail-search',
     pathMatch: 'full'
   },
   {
