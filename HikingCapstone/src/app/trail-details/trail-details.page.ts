@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HikingAPIService} from "../Services/hiking-api.service";
 import {ActivatedRoute} from "@angular/router";
 import {Observable} from 'rxjs';
@@ -11,7 +11,7 @@ import {WeatherGet} from "../Shared/Weather/weather-get";
   templateUrl: './trail-details.page.html',
   styleUrls: ['./trail-details.page.scss'],
 })
-export class TrailDetailsPage implements OnInit {
+export class TrailDetailsPage implements OnInit, OnDestroy {
 
   private trailID: number = Number(this.route.snapshot.paramMap.get('id'));
   private trailData: Observable<TrailData> = this.hikingService.getTrailDetails(this.trailID);
@@ -25,6 +25,13 @@ export class TrailDetailsPage implements OnInit {
 
   ngOnInit(): void {
     // Math.round(4.7);
+    this.hikingService.getTrailDetails(this.trailID).subscribe((trailsData)=>{
+      // console.log(trailsData);
+      this.weatherData = this.weatherService.getWeatherForLatLong(trailsData.trails[0].latitude, trailsData.trails[0].longitude);
+    });
+  }
+  ngOnDestroy(): void {
+
   }
 
   getWeatherData(lat: number, long: number): void{
