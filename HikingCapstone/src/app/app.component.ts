@@ -14,19 +14,9 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit {
   public appPages = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
       title: 'Trail search',
       url: '/trail-search',
-      icon: 'home'
+      icon: 'search'
     },
     {
       title: 'My trails',
