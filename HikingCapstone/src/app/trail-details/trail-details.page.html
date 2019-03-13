@@ -18,10 +18,20 @@
       <p>Length: {{ trail.length }} Miles</p>
       <p>Ascent: {{trail.ascent}} Ft.</p>
     </div>
+    <div class="trailLocation">
+      <p>Latitude: {{ trail.latitude }}</p>
+      <p>Longitude: {{ trail.longitude}}</p>
+    </div>
     <p>{{trail.summary}}</p>
-    <div>
-      <h3 class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
-      {{trail.stars}} Stars
+    <div id="weatherStars">
+      <div>
+        <h3 class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
+        {{trail.stars}} Stars
+      </div>
+      <div class="weather" *ngIf="weatherData | async as weather">
+        <p>{{weather.weather[0].description | wDesc}}</p>
+        <img src="https://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png">
+      </div>
     </div>
   </div>
 </ion-content>
