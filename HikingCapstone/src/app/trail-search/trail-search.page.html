@@ -15,7 +15,8 @@
 <ion-content padding>
   <ion-list *ngIf="trails | async as Trails">
     <ion-item (click)="goToTrail(aTrail.id)" *ngFor="let aTrail of Trails.trails">
-      <ion-img src="{{aTrail.imgSmall}}"></ion-img>
+      <ion-img src="{{aTrail.imgSmall | unknownImg}}"></ion-img>
+      <!--<p>{{aTrail.imgSmall}}</p>-->
       <div class="trailInfo">
         <h3>{{ aTrail.name }}</h3>
         <p>{{aTrail.summary}}</p>
