@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {StarRoundingPipe} from "../star-rounding.pipe";
-import { DifficultyPipe } from '../../Shared/pipes/difficulty.pipe';
-import { WDescPipe } from '../../Shared/pipes/w-desc.pipe';
+import { DifficultyPipe } from './difficulty.pipe';
+import { WDescPipe } from './w-desc.pipe';
 
 @NgModule({
   declarations: [

@@ -31,6 +31,9 @@ export class TrailSearchPage implements OnInit {
       this.invalidZip = false;
       this.mapService.getCoords(this.search).subscribe((mapData: MapQuestData) =>{
         this.trails = this.hikingService.getTrailsFor(mapData.results[0].locations[0].latLng);
+        this.trails.subscribe((trail)=>{
+          console.log(trail);
+        });
       });
     }
     else{
