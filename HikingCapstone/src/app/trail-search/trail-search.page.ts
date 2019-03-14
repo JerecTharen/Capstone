@@ -43,7 +43,6 @@ export class TrailSearchPage implements OnInit {
 
   goToTrail(trailID: number): void{
     this.router.navigate([`trail-details/${trailID}`]);
-    this.router.for
   }
 
 }
