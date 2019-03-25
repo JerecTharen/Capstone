@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthService } from '../auth.service';
 import { map } from 'rxjs/operators';
+import {DBTrailData} from "../../Shared/DB/db-trail-data";
 
 @Injectable({
     providedIn: 'root'
@@ -30,7 +31,7 @@ export class FirestoreService {
     }
 
     getInterested() { // gets an array of interested
-        return this.afs.collection(`users/${this.auth.currentUser.uid}/interested`).valueChanges();
+        return this.afs.collection<DBTrailData>(`users/${this.auth.currentUser.uid}/interested`).valueChanges();
     }
 
     // completed
@@ -50,7 +51,7 @@ export class FirestoreService {
     }
 
     getCompleted() { // gets an array of completed
-        return this.afs.collection(`users/${this.auth.currentUser.uid}/completed`).valueChanges();
+        return this.afs.collection<DBTrailData>(`users/${this.auth.currentUser.uid}/completed`).valueChanges();
     }
 
 }
