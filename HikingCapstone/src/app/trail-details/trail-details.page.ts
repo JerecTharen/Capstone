@@ -9,6 +9,8 @@ import {FirestoreService} from "../Services/firestore/firestore.service";
 import {AuthService} from "../Services/auth.service";
 import {DBTrailData} from "../Shared/DB/db-trail-data";
 import {takeUntil, tap} from "rxjs/operators";
+import {ForcastGet} from "../Shared/Weather/forcast-get";
+import {ForcastListObject} from "../Shared/Weather/forcast-list-object";
 
 @Component({
   selector: 'app-trail-details',
@@ -20,6 +22,8 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
   private trailID: number = Number(this.route.snapshot.paramMap.get('id'));
   private trailData: Observable<TrailData> = this.hikingService.getTrailDetails(this.trailID);
   private weatherData: Observable<WeatherGet>;
+  private weatherForcast: Observable<ForcastGet>;
+  private fiveDay: ForcastListObject[] = [];
   private hasHikedObs;
   private notHikedObs;
   private hikedBool: boolean = false;
@@ -40,6 +44,14 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
     this.hikingService.getTrailDetails(this.trailID).subscribe((trailsData)=>{
       // console.log(trailsData);
       this.weatherData = this.weatherService.getWeatherForLatLong(trailsData.trails[0].latitude, trailsData.trails[0].longitude);
+      this.weatherForcast = this.weatherService.getWeatherForcast(trailsData.trails[0].latitude, trailsData.trails[0].longitude);
+      this.weatherForcast.subscribe((forcastData: ForcastGet)=>{
+        for(let i: number = 0; i < forcastData.list.length; i++){
+          if(i === 8 || i === 16 || i === 32 || i === 39){
+            this.fiveDay.push(forcastData.list[i]);
+          }
+        }
+      });
     });
 
     this.auth.authed().subscribe((loggedIn)=>{
