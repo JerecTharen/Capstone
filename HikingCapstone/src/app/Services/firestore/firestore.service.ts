@@ -3,54 +3,55 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthService } from '../auth.service';
 import { map } from 'rxjs/operators';
+import {DBTrailData} from "../../Shared/DB/db-trail-data";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class FirestoreService {
-  constructor(
-    private afs: AngularFirestore,
-    private auth: AuthService
-  ) { }
+    constructor(
+        private afs: AngularFirestore,
+        private auth: AuthService
+    ) { }
 
-  // interested
+    // interested
 
-  addToInterested(id: number) {
-    this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({ id });
-  }
+    addToInterested(id: number) {
+        this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({ id });
+    }
 
-  removeFromInterested(id: number) {
-    this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).delete();
-  }
+    removeFromInterested(id: number) {
+        this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).delete();
+    }
 
-  isInterested(id: number) { // returns bool if interested or not
-    return this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).valueChanges().pipe(
-      map(res => res ? true : false)
-    );
-  }
+    isInterested(id: number) { // returns bool if interested or not
+        return this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).valueChanges().pipe(
+            map(res => res ? true : false)
+        );
+    }
 
-  getInterested() { // gets an array of interested
-    return this.afs.collection(`users/${this.auth.currentUser.uid}/interested`).valueChanges();
-  }
+    getInterested() { // gets an array of interested
+        return this.afs.collection<DBTrailData>(`users/${this.auth.currentUser.uid}/interested`).valueChanges();
+    }
 
-  // completed
+    // completed
 
-  addToCompleted(id: number) {
-    this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).set({ id });
-  }
+    addToCompleted(id: number) {
+        this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).set({ id });
+    }
 
-  removeFromCompleted(id: number) {
-    this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).delete();
-  }
+    removeFromCompleted(id: number) {
+        this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).delete();
+    }
 
-  isCompleted(id: number) { // returns bool if completed or not
-    return this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).valueChanges().pipe(
-      map(res => res ? true : false)
-    );
-  }
+    isCompleted(id: number) { // returns bool if completed or not
+        return this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).valueChanges().pipe(
+            map(res => res ? true : false)
+        );
+    }
 
-  getCompleted() { // gets an array of completed
-    return this.afs.collection(`users/${this.auth.currentUser.uid}/completed`).valueChanges();
-  }
+    getCompleted() { // gets an array of completed
+        return this.afs.collection<DBTrailData>(`users/${this.auth.currentUser.uid}/completed`).valueChanges();
+    }
 
 }

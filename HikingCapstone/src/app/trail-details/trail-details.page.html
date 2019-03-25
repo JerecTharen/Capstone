@@ -1,38 +1,43 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>
-      Trail Details
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Trail Details
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="trailData | async as trails" padding>
-  <div class="trailData" *ngFor="let trail of trails.trails">
-    <h1>{{trail.name}}</h1>
-    <img src="{{trail.imgMedium}}">
-    <div class="trailInformation">
-      <img src="{{trail.difficulty | difficulty}}">
-      <p>Length: {{ trail.length }} Miles</p>
-      <p>Ascent: {{trail.ascent}} Ft.</p>
+    <div class="trailData" *ngFor="let trail of trails.trails">
+        <h1>{{trail.name}}</h1>
+        <img src="{{trail.imgMedium}}">
+        <div class="trailInformation">
+            <img src="{{trail.difficulty | difficulty}}">
+            <p>Length: {{ trail.length }} Miles</p>
+            <p>Ascent: {{trail.ascent}} Ft.</p>
+        </div>
+        <div class="trailLocation">
+            <p>Latitude: {{ trail.latitude }}</p>
+            <p>Longitude: {{ trail.longitude}}</p>
+        </div>
+        <p>{{trail.summary}}</p>
+        <div id="weatherStars">
+            <div>
+                <h3 class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
+                {{trail.stars}} Stars
+            </div>
+            <div class="weather" *ngIf="weatherData | async as weather">
+                <p>{{weather.weather[0].description | wDesc}}</p>
+                <img src="https://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png">
+            </div>
+        </div>
+        <div *ngIf="loggedIn">
+            <ion-button *ngIf="!hikedBool" (click)="addToHiked()">ADD TO HAS-HIKED</ion-button>
+            <ion-button *ngIf="!notHikedBool && !hikedBool" (click)="addToWantToHike()">ADD TO WANT-TO-HIKE</ion-button>
+            <ion-button (click)="devReset()">DEV RESET</ion-button>
+        </div>
     </div>
-    <div class="trailLocation">
-      <p>Latitude: {{ trail.latitude }}</p>
-      <p>Longitude: {{ trail.longitude}}</p>
-    </div>
-    <p>{{trail.summary}}</p>
-    <div id="weatherStars">
-      <div>
-        <h3 class="star{{trail.stars | starRounding}}"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
-        {{trail.stars}} Stars
-      </div>
-      <div class="weather" *ngIf="weatherData | async as weather">
-        <p>{{weather.weather[0].description | wDesc}}</p>
-        <img src="https://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png">
-      </div>
-    </div>
-  </div>
 </ion-content>
