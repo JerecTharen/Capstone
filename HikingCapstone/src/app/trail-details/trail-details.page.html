@@ -38,7 +38,7 @@
                 <h4>Five Day Forcast</h4>
                 <ul>
                     <li *ngFor="let day of fiveDay">
-                        <p>{{ day.weather[0].description }}</p>
+                        <p>{{ day.weather[0].description | wDesc }}</p>
                         <img src="https://openweathermap.org/img/w/{{ day.weather[0].icon }}.png" alt="{{ day.weather[0].main }}">
                     </li>
                 </ul>
