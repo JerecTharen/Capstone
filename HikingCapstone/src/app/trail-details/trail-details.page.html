@@ -34,6 +34,8 @@
                 <p>{{weather.weather[0].description | wDesc}}</p>
                 <img src="https://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" alt="{{ weather.weather[0].main }}">
             </div>
+        </div>
+        <div id="forcastControls">
             <div class="forcast" *ngIf="fiveDay">
                 <h4>Five Day Forcast</h4>
                 <ul>
@@ -43,11 +45,12 @@
                     </li>
                 </ul>
             </div>
+            <div *ngIf="loggedIn">
+                <ion-button *ngIf="!hikedBool" (click)="addToHiked()">ADD TO HAS-HIKED</ion-button>
+                <ion-button *ngIf="!notHikedBool && !hikedBool" (click)="addToWantToHike()">ADD TO WANT-TO-HIKE</ion-button>
+                <ion-button (click)="devReset()">DEV RESET</ion-button>
+            </div>
         </div>
-        <div *ngIf="loggedIn">
-            <ion-button *ngIf="!hikedBool" (click)="addToHiked()">ADD TO HAS-HIKED</ion-button>
-            <ion-button *ngIf="!notHikedBool && !hikedBool" (click)="addToWantToHike()">ADD TO WANT-TO-HIKE</ion-button>
-            <ion-button (click)="devReset()">DEV RESET</ion-button>
-        </div>
+
     </div>
 </ion-content>
