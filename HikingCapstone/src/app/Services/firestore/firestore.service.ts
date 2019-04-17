@@ -16,11 +16,20 @@ export class FirestoreService {
 
     // interested
 
-    addToInterested(id: number) {
-        this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({ id });
+    addToInterested(id: number):void {
+        this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({ id: id, rating: null });
     }
 
-    removeFromInterested(id: number) {
+    addRating(rating: number, hasHiked: boolean, id: number):void{
+        if(hasHiked){
+            this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).set({id: id, rating: rating});
+        }
+        else{
+            this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({id: id, rating: rating});
+        }
+    }
+
+    removeFromInterested(id: number):void {
         this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).delete();
     }
 

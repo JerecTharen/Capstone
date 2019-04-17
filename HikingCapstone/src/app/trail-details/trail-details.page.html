@@ -19,9 +19,21 @@
             <p>Length: {{ trail.length }} Miles</p>
             <p>Ascent: {{trail.ascent}} Ft.</p>
         </div>
-        <div class="trailLocation">
-            <p>Latitude: {{ trail.latitude }}</p>
-            <p>Longitude: {{ trail.longitude}}</p>
+        <div id="trailTop">
+            <div class="trailLocation">
+                <p>Latitude: {{ trail.latitude }}</p>
+                <p>Longitude: {{ trail.longitude}}</p>
+            </div>
+            <div *ngIf="hikedBool || notHikedBool" class="userRating">
+                <p>Your Rating: {{userRating}}</p>
+                <h3>
+                    <i [class]="userRatingClasses[0]" (mouseenter)="ratingOnHover(1)" (mouseleave)="resetHover()" (click)="updateUserRating(1)"></i>
+                    <i [class]="userRatingClasses[1]" (mouseenter)="ratingOnHover(2)" (mouseleave)="resetHover()" (click)="updateUserRating(2)"></i>
+                    <i [class]="userRatingClasses[2]" (mouseenter)="ratingOnHover(3)" (mouseleave)="resetHover()" (click)="updateUserRating(3)"></i>
+                    <i [class]="userRatingClasses[3]" (mouseenter)="ratingOnHover(4)" (mouseleave)="resetHover()" (click)="updateUserRating(4)"></i>
+                    <i [class]="userRatingClasses[4]" (mouseenter)="ratingOnHover(5)" (mouseleave)="resetHover()" (click)="updateUserRating(5)"></i>
+                </h3>
+            </div>
         </div>
         <p>{{trail.summary}}</p>
         <div id="weatherStars">

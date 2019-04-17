@@ -30,6 +30,8 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
     private notHikedBool: boolean = false;
     private loggedIn: boolean;
     private unsubscribe$ = new Subject();
+    private userRating: number;
+    private userRatingClasses: string[] = ['fas fa-hiking', 'fas fa-hiking', 'fas fa-hiking', 'fas fa-hiking', 'fas fa-hiking'];
 
     constructor(
         private hikingService: HikingAPIService,
@@ -70,6 +72,8 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
                             // console.log(`Checking ${hikedList[i].id} against ${this.trailID}`);
                             if(hikedList[i].id === this.trailID){
                                 found = true;
+                                this.userRating = hikedList[i].rating;
+                                this.updateRatingOnPage();
                             }
                         }
                         if(found){
@@ -86,6 +90,8 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
                             // console.log(`Checking ${notHikedList[i].id} against ${this.trailID}`);
                             if(notHikedList[i].id === this.trailID){
                                 found = true;
+                                this.userRating = notHikedList[i].rating;
+                                this.updateRatingOnPage();
                             }
                         }
                         if(found){
@@ -122,6 +128,46 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
     devReset(): void{
         this.firestore.removeFromCompleted(this.trailID);
         this.firestore.removeFromInterested(this.trailID);
+    }
+
+    updateUserRating(rating: number): void{
+        this.firestore.addRating(rating, this.hikedBool, this.trailID);
+        let result: string[] = [];
+        for(let i: number = 0; i < this.userRatingClasses.length; i++){
+            if(i < rating){
+                result.push('fas fa-hiking activeRating');
+            }
+            else{
+                result.push('fas fa-hiking');
+            }
+        }
+        this.userRatingClasses = result;
+    }
+    updateRatingOnPage(): void{
+        let result: string[] = [];
+        for(let i: number = 0; i < this.userRatingClasses.length; i++){
+            if(i < this.userRating){
+                result.push('fas fa-hiking activeRating');
+            }
+            else{
+                result.push('fas fa-hiking');
+            }
+        }
+        this.userRatingClasses = result;
+    }
+    ratingOnHover(elNum: number): void{
+        console.log(elNum);
+        for(let i: number = 0; i < elNum; i++){
+            this.userRatingClasses[i] += ' activeRating';
+        }
+    }
+    resetHover(): void{
+        if(this.userRating === null){
+            this.userRatingClasses = ['fas fa-hiking', 'fas fa-hiking', 'fas fa-hiking', 'fas fa-hiking', 'fas fa-hiking'];
+        }
+        else{
+            this.updateRatingOnPage();
+        }
     }
 
 }
