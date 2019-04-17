@@ -32,3 +32,25 @@
   display: flex;
   justify-content: space-around;
 }
+
+#forcastControls{
+  display: flex;
+  justify-content: space-around;
+}
+
+#trailTop{
+  display: flex;
+  justify-content: space-between;
+}
+
+.userRating{
+  border: 3px black solid;
+  border-radius: 25%;
+  padding: .25em;
+}
+.userRating .fa-hiking{
+  margin: .1em;
+}
+.activeRating{
+  color: #10dc60;
+}

@@ -19,9 +19,21 @@
             <p>Length: {{ trail.length }} Miles</p>
             <p>Ascent: {{trail.ascent}} Ft.</p>
         </div>
-        <div class="trailLocation">
-            <p>Latitude: {{ trail.latitude }}</p>
-            <p>Longitude: {{ trail.longitude}}</p>
+        <div id="trailTop">
+            <div class="trailLocation">
+                <p>Latitude: {{ trail.latitude }}</p>
+                <p>Longitude: {{ trail.longitude}}</p>
+            </div>
+            <div *ngIf="hikedBool || notHikedBool" class="userRating">
+                <p>Your Rating: {{userRating}}</p>
+                <h3>
+                    <i [class]="userRatingClasses[0]" (mouseenter)="ratingOnHover(1)" (mouseleave)="resetHover()" (click)="updateUserRating(1)"></i>
+                    <i [class]="userRatingClasses[1]" (mouseenter)="ratingOnHover(2)" (mouseleave)="resetHover()" (click)="updateUserRating(2)"></i>
+                    <i [class]="userRatingClasses[2]" (mouseenter)="ratingOnHover(3)" (mouseleave)="resetHover()" (click)="updateUserRating(3)"></i>
+                    <i [class]="userRatingClasses[3]" (mouseenter)="ratingOnHover(4)" (mouseleave)="resetHover()" (click)="updateUserRating(4)"></i>
+                    <i [class]="userRatingClasses[4]" (mouseenter)="ratingOnHover(5)" (mouseleave)="resetHover()" (click)="updateUserRating(5)"></i>
+                </h3>
+            </div>
         </div>
         <p>{{trail.summary}}</p>
         <div id="weatherStars">
@@ -34,20 +46,23 @@
                 <p>{{weather.weather[0].description | wDesc}}</p>
                 <img src="https://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" alt="{{ weather.weather[0].main }}">
             </div>
+        </div>
+        <div id="forcastControls">
             <div class="forcast" *ngIf="fiveDay">
                 <h4>Five Day Forcast</h4>
                 <ul>
                     <li *ngFor="let day of fiveDay">
-                        <p>{{ day.weather[0].description }}</p>
+                        <p>{{ day.weather[0].description | wDesc }}</p>
                         <img src="https://openweathermap.org/img/w/{{ day.weather[0].icon }}.png" alt="{{ day.weather[0].main }}">
                     </li>
                 </ul>
             </div>
+            <div *ngIf="loggedIn">
+                <ion-button *ngIf="!hikedBool" (click)="addToHiked()">ADD TO HAS-HIKED</ion-button>
+                <ion-button *ngIf="!notHikedBool && !hikedBool" (click)="addToWantToHike()">ADD TO WANT-TO-HIKE</ion-button>
+                <ion-button (click)="devReset()">DEV RESET</ion-button>
+            </div>
         </div>
-        <div *ngIf="loggedIn">
-            <ion-button *ngIf="!hikedBool" (click)="addToHiked()">ADD TO HAS-HIKED</ion-button>
-            <ion-button *ngIf="!notHikedBool && !hikedBool" (click)="addToWantToHike()">ADD TO WANT-TO-HIKE</ion-button>
-            <ion-button (click)="devReset()">DEV RESET</ion-button>
-        </div>
+
     </div>
 </ion-content>
