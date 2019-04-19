@@ -31,10 +31,15 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'trail-details/:id/comments',
+    loadChildren: './trail-details/comments/comments.module#CommentsPageModule',
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'my-trails',
     loadChildren: './my-trails/my-trails.module#MyTrailsPageModule',
     canActivate: [AuthGuard]
-  }
+  },
 ];
 
 @NgModule({

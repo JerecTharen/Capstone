@@ -11,6 +11,7 @@ import {DBTrailData} from "../Shared/DB/db-trail-data";
 import {takeUntil, tap} from "rxjs/operators";
 import {ForcastGet} from "../Shared/Weather/forcast-get";
 import {ForcastListObject} from "../Shared/Weather/forcast-list-object";
+import {NavController} from "@ionic/angular";
 
 @Component({
     selector: 'app-trail-details',
@@ -39,6 +40,7 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
         private weatherService: WeatherAPIService,
         private firestore: FirestoreService,
         private auth: AuthService,
+        private nav: NavController,
     ) { }
 
     ngOnInit(): void {
@@ -108,12 +110,12 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
     }
 
     getWeatherData(lat: number, long: number): void{
-        console.log('ran get');
+        // console.log('ran get');
         this. weatherData = this.weatherService.getWeatherForLatLong(lat, long);
     }
 
     addToHiked(): void{
-        console.log('adding to hiked');
+        // console.log('adding to hiked');
         if(this.notHikedBool){
             this.firestore.removeFromInterested(this.trailID);
         }
@@ -121,14 +123,14 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
     }
 
     addToWantToHike(): void{
-        console.log('adding to want to hike');
+        // console.log('adding to want to hike');
         this.firestore.addToInterested(this.trailID);
     }
 
-    devReset(): void{
-        this.firestore.removeFromCompleted(this.trailID);
-        this.firestore.removeFromInterested(this.trailID);
-    }
+    // devReset(): void{
+    //     this.firestore.removeFromCompleted(this.trailID);
+    //     this.firestore.removeFromInterested(this.trailID);
+    // }
 
     updateUserRating(rating: number): void{
         this.firestore.addRating(rating, this.hikedBool, this.trailID);
@@ -168,6 +170,10 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
         else{
             this.updateRatingOnPage();
         }
+    }
+
+    toComments(){
+        this.nav.navigateForward(`/trail-details/${this.trailID}/comments`);
     }
 
 }
