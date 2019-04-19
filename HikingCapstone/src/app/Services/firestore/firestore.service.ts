@@ -4,6 +4,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { AuthService } from '../auth.service';
 import { map } from 'rxjs/operators';
 import {DBTrailData} from "../../Shared/DB/db-trail-data";
+import {DbComment} from "../../Shared/DB/db-comment";
+import {Observable} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -27,6 +29,10 @@ export class FirestoreService {
         else{
             this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({id: id, rating: rating});
         }
+    }
+
+    addComment(trailID: number, comment: string): void{
+        this.afs.doc<DbComment>(`allComments/${trailID}/comments/${this.auth.currentUser.uid}`).set({uid: this.auth.currentUser.uid, trailID: trailID, comment: comment});
     }
 
     removeFromInterested(id: number):void {
@@ -61,6 +67,14 @@ export class FirestoreService {
 
     getCompleted() { // gets an array of completed
         return this.afs.collection<DBTrailData>(`users/${this.auth.currentUser.uid}/completed`).valueChanges();
+    }
+
+    getComments(trailID: number): Observable<DbComment[][]>{
+        return this.afs.collection<DbComment[]>(`allComments/${trailID}/comments`).valueChanges();
+    }
+
+    getUserComment(trailID: number): Observable<DbComment>{
+        return this.afs.doc<DbComment>(`allComments/${trailID}/comments/${this.auth.currentUser.uid}`).valueChanges();
     }
 
 }

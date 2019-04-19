@@ -4,6 +4,9 @@
             <ion-menu-button></ion-menu-button>
             <ion-back-button></ion-back-button>
         </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="toComments()">Comments<i class="fas fa-arrow-right"></i></ion-button>
+        </ion-buttons>
         <ion-title>
             Trail Details
         </ion-title>
@@ -60,7 +63,7 @@
             <div *ngIf="loggedIn">
                 <ion-button *ngIf="!hikedBool" (click)="addToHiked()">ADD TO HAS-HIKED</ion-button>
                 <ion-button *ngIf="!notHikedBool && !hikedBool" (click)="addToWantToHike()">ADD TO WANT-TO-HIKE</ion-button>
-                <ion-button (click)="devReset()">DEV RESET</ion-button>
+<!--                <ion-button (click)="devReset()">DEV RESET</ion-button>-->
             </div>
         </div>
 
