@@ -119,12 +119,22 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
         if(this.notHikedBool){
             this.firestore.removeFromInterested(this.trailID);
         }
-        this.firestore.addToCompleted(this.trailID);
+        this.trailData.pipe(
+            takeUntil(this.unsubscribe$),
+            tap((data: TrailData)=>{
+                this.firestore.addToCompleted(this.trailID, data.trails[0].name);
+            })
+        ).subscribe();
     }
 
     addToWantToHike(): void{
         // console.log('adding to want to hike');
-        this.firestore.addToInterested(this.trailID);
+        this.trailData.pipe(
+            takeUntil(this.unsubscribe$),
+            tap((data: TrailData)=>{
+                this.firestore.addToInterested(this.trailID, data.trails[0].name);
+            })
+        ).subscribe();
     }
 
     // devReset(): void{
