@@ -18,8 +18,8 @@ export class FirestoreService {
 
     // interested
 
-    addToInterested(id: number):void {
-        this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({ id: id, rating: null });
+    addToInterested(id: number, name: string):void {
+        this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({ id: id, rating: null, name: name });
     }
 
     addRating(rating: number, hasHiked: boolean, id: number):void{
@@ -51,8 +51,8 @@ export class FirestoreService {
 
     // completed
 
-    addToCompleted(id: number) {
-        this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).set({ id });
+    addToCompleted(id: number, name: string) {
+        this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).set({ id: id, name: name });
     }
 
     removeFromCompleted(id: number) {
