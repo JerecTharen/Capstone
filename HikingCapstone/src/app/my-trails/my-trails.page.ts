@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-trails.page.scss'],
 })
 export class MyTrailsPage implements OnInit {
+  tab: string = 'hiked';
 
   constructor() { }
 
