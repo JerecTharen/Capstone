@@ -22,4 +22,21 @@
 
 <ion-content padding>
 
+  <!-- pages -->
+  <ng-container *ngIf='tab === "hiked"'>
+    <ion-card *ngFor='let i of $hiked | async' [routerLink]='["/trail-details", i.id]'>
+      <ion-card-content>
+        <ion-card-title>{{ i.name }}</ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ng-container *ngIf='tab === "interested"'>
+    <ion-card *ngFor='let i of $interested | async' [routerLink]='["/trail-details", i.id]'>
+      <ion-card-content>
+        <ion-card-title>{{ i.name }}</ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
 </ion-content>
