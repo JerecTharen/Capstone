@@ -22,12 +22,12 @@ export class FirestoreService {
         this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({ id: id, rating: null, name: name });
     }
 
-    addRating(rating: number, hasHiked: boolean, id: number):void{
+    addRating(rating: number, hasHiked: boolean, id: number, name: string):void{
         if(hasHiked){
-            this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).set({id: id, rating: rating});
+            this.afs.doc(`users/${this.auth.currentUser.uid}/completed/${id}`).set({id: id, rating: rating, name});
         }
         else{
-            this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({id: id, rating: rating});
+            this.afs.doc(`users/${this.auth.currentUser.uid}/interested/${id}`).set({id: id, rating: rating, name});
         }
     }
 

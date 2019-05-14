@@ -132,6 +132,7 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
         this.trailData.pipe(
             takeUntil(this.unsubscribe$),
             tap((data: TrailData)=>{
+                // console.log('name is: ',data.trails[0].name);
                 this.firestore.addToInterested(this.trailID, data.trails[0].name);
             })
         ).subscribe();
@@ -143,17 +144,22 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
     // }
 
     updateUserRating(rating: number): void{
-        this.firestore.addRating(rating, this.hikedBool, this.trailID);
-        let result: string[] = [];
-        for(let i: number = 0; i < this.userRatingClasses.length; i++){
-            if(i < rating){
-                result.push('fas fa-hiking activeRating');
-            }
-            else{
-                result.push('fas fa-hiking');
-            }
-        }
-        this.userRatingClasses = result;
+        this.trailData.pipe(
+            takeUntil(this.unsubscribe$),
+            tap((data: TrailData)=>{
+                this.firestore.addRating(rating, this.hikedBool, this.trailID, data.trails[0].name);
+                let result: string[] = [];
+                for(let i: number = 0; i < this.userRatingClasses.length; i++){
+                    if(i < rating){
+                        result.push('fas fa-hiking activeRating');
+                    }
+                    else{
+                        result.push('fas fa-hiking');
+                    }
+                }
+                this.userRatingClasses = result;
+            })
+        ).subscribe();
     }
     updateRatingOnPage(): void{
         let result: string[] = [];
@@ -168,7 +174,7 @@ export class TrailDetailsPage implements OnInit, OnDestroy {
         this.userRatingClasses = result;
     }
     ratingOnHover(elNum: number): void{
-        console.log(elNum);
+        // console.log(elNum);
         for(let i: number = 0; i < elNum; i++){
             this.userRatingClasses[i] += ' activeRating';
         }
