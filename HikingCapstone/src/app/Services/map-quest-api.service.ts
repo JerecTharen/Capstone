@@ -15,7 +15,7 @@ export class MapQuestAPIService {
   ) { }
 
   getCoords(zip: number):Observable<MapQuestData>{
-    return this.http.get<MapQuestData>(`http://www.mapquestapi.com/geocoding/v1/address?key=${this.DELETEMeTemp}&location=${zip}`);
+    return this.http.get<MapQuestData>(`https://www.mapquestapi.com/geocoding/v1/address?key=${this.DELETEMeTemp}&location=${zip}`);
   }
 
 }

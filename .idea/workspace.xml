@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a854dbfc-b610-472b-80e1-75a5b822b1b3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HikingCapstone/src/app/Services/firestore/firestore.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/HikingCapstone/src/app/Services/firestore/firestore.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HikingCapstone/src/app/trail-details/trail-details.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/HikingCapstone/src/app/trail-details/trail-details.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HikingCapstone/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/HikingCapstone/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HikingCapstone/src/app/Services/map-quest-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/HikingCapstone/src/app/Services/map-quest-api.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/trail-details/trail-details.page.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="177" column="30" lean-forward="true" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
+            <state relative-caret-position="2460">
+              <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -31,10 +29,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/Services/map-quest-api.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="132" lean-forward="true" selection-start-line="17" selection-start-column="132" selection-end-line="17" selection-end-column="132" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HikingCapstone/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="105">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -61,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/Services/firestore/firestore.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
+            <state relative-caret-position="255">
               <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
@@ -73,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/list/list.page.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+            <state relative-caret-position="285">
+              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -98,6 +108,7 @@
         <option value="$PROJECT_DIR$/HikingCapstone/src/app/Services/firestore/firestore.service.ts" />
         <option value="$PROJECT_DIR$/HikingCapstone/src/app/trail-details/trail-details.page.ts" />
         <option value="$PROJECT_DIR$/HikingCapstone/src/index.html" />
+        <option value="$PROJECT_DIR$/HikingCapstone/src/app/Services/map-quest-api.service.ts" />
       </list>
     </option>
   </component>
@@ -112,7 +123,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,12 +202,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Project11" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -237,18 +248,20 @@
       <workItem from="1555594844960" duration="2874000" />
       <workItem from="1555680627083" duration="7168000" />
       <workItem from="1557499542264" duration="1097000" />
-      <workItem from="1557800473097" duration="856000" />
+      <workItem from="1557800473097" duration="1768000" />
+      <workItem from="1557935435881" duration="657000" />
+      <workItem from="1558013920316" duration="1247000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21029000" />
+    <option name="totallyTimeSpent" value="23845000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="25" width="1317" height="743" extended-state="6" />
+    <frame x="49" y="-2" width="1871" height="1082" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1537867" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15367965" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -367,10 +380,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/my-trails/my-trails.page.ts">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/trail-details/trail-details.page.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/my-trails/my-trails.page.html">
+    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/my-trails/my-trails.page.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/Shared/DB/db-trail-data.ts">
@@ -380,16 +407,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/list/list.page.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/my-trails/my-trails.page.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/Services/firestore/firestore.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
+        <state relative-caret-position="255">
           <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
@@ -397,20 +420,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/trail-details/trail-details.page.ts">
+    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/list/list.page.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="177" column="30" lean-forward="true" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="285">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/index.html">
+    <entry file="file://$PROJECT_DIR$/HikingCapstone/src/app/Services/map-quest-api.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="17" column="132" lean-forward="true" selection-start-line="17" selection-start-column="132" selection-end-line="17" selection-end-column="132" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
