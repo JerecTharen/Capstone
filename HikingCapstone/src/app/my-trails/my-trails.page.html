@@ -24,17 +24,23 @@
 
   <!-- pages -->
   <ng-container *ngIf='tab === "hiked"'>
-    <ion-card *ngFor='let i of $hiked | async' [routerLink]='["/trail-details", i.id]'>
+    <ion-card *ngFor='let i of $hiked | async'>
       <ion-card-content>
-        <ion-card-title>{{ i.name }}</ion-card-title>
+        <ion-card-title>
+          <a [routerLink]='["/trail-details", i.id]'>{{ i.name }}</a>
+        </ion-card-title>
+        <ion-button color='danger' (click)='removeHiked(i.id)'>Remove</ion-button>
       </ion-card-content>
     </ion-card>
   </ng-container>
 
   <ng-container *ngIf='tab === "interested"'>
-    <ion-card *ngFor='let i of $interested | async' [routerLink]='["/trail-details", i.id]'>
+    <ion-card *ngFor='let i of $interested | async'>
       <ion-card-content>
-        <ion-card-title>{{ i.name }}</ion-card-title>
+        <ion-card-title>
+          <a [routerLink]='["/trail-details", i.id]'>{{ i.name }}</a>
+        </ion-card-title>
+        <ion-button color='danger' (click)='removeInterested(i.id)'>Remove</ion-button>
       </ion-card-content>
     </ion-card>
   </ng-container>

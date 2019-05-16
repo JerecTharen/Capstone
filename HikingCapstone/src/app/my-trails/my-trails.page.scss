@@ -1,3 +1,13 @@
 ion-card {
-  cursor: pointer;
+
+  ion-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ion-button {
+    margin-left: 16px;
+  }
+
 }
