@@ -29,7 +29,7 @@
         <ion-card-title>
           <a [routerLink]='["/trail-details", i.id]'>{{ i.name }}</a>
         </ion-card-title>
-        <ion-button color='danger'>Remove</ion-button>
+        <ion-button color='danger' (click)='removeHiked(i.id)'>Remove</ion-button>
       </ion-card-content>
     </ion-card>
   </ng-container>
@@ -40,7 +40,7 @@
         <ion-card-title>
           <a [routerLink]='["/trail-details", i.id]'>{{ i.name }}</a>
         </ion-card-title>
-        <ion-button color='danger'>Remove</ion-button>
+        <ion-button color='danger' (click)='removeInterested(i.id)'>Remove</ion-button>
       </ion-card-content>
     </ion-card>
   </ng-container>

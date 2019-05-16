@@ -23,4 +23,12 @@ export class MyTrailsPage implements OnInit {
     this.$interested = this.fs.getInterested();
   }
 
+  removeHiked(id: number) {
+    this.fs.removeFromCompleted(id);
+  }
+
+  removeInterested(id: number) {
+    this.fs.removeFromInterested(id);
+  }
+
 }
